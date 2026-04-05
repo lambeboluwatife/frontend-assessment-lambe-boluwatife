@@ -37,8 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${notoSerif.variable} ${workSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
-      <Navbar />
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="bg-secondary font-body selection:bg-secondary selection:text-on-primary min-h-screen custom-scrollbar">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

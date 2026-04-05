@@ -11,26 +11,6 @@ const Navbar = () => {
           >
             THE ARCHIVE
           </a>
-          <nav className="hidden md:flex gap-8 items-center">
-            <a
-              className="font-serif tracking-tighter text-primary border-b-2 border-primary pb-1 font-bold"
-              href="#"
-            >
-              Movies
-            </a>
-            <a
-              className="font-serif tracking-tighter text-[#d0c5b2] hover:text-primary transition-colors"
-              href="#"
-            >
-              TV Shows
-            </a>
-            <a
-              className="font-serif tracking-tighter text-[#d0c5b2] hover:text-primary transition-colors"
-              href="#"
-            >
-              People
-            </a>
-          </nav>
         </div>
         <div className="flex items-center gap-6">
           <div className="relative hidden lg:block">
