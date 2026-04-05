@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif, Work_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const notoSerif = Noto_Serif({
   variable: "--font-serif",
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="bg-secondary font-body selection:bg-secondary selection:text-on-primary min-h-screen custom-scrollbar">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
