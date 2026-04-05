@@ -1,0 +1,720 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>REEL Cinematic Editorial | Explore</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Space+Grotesk:wght@300;500;700&amp;family=Work+Sans:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#e5e2e3",
+              primary: "#e6c364",
+              "on-primary": "#3d2e00",
+              "surface-container-lowest": "#0e0e0f",
+              "inverse-surface": "#e5e2e3",
+              "surface-container": "#201f20",
+              "surface-dim": "#131314",
+              secondary: "#c8c6c8",
+              "on-tertiary-fixed": "#410005",
+              background: "#131314",
+              "tertiary-fixed": "#ffdad7",
+              "on-tertiary-fixed-variant": "#8d131d",
+              "on-secondary-fixed": "#1b1b1d",
+              "on-surface-variant": "#d0c5b2",
+              "on-error": "#690005",
+              "tertiary-fixed-dim": "#ffb3af",
+              "on-error-container": "#ffdad6",
+              outline: "#99907e",
+              "inverse-on-surface": "#313031",
+              "secondary-fixed-dim": "#c8c6c8",
+              "on-secondary": "#303032",
+              "secondary-container": "#474649",
+              error: "#ffb4ab",
+              "inverse-primary": "#755b00",
+              "on-secondary-fixed-variant": "#474649",
+              "on-secondary-container": "#b7b4b7",
+              "on-primary-fixed": "#241a00",
+              "tertiary-container": "#ff8985",
+              "on-tertiary-container": "#830917",
+              tertiary: "#ffb3af",
+              "on-primary-container": "#503d00",
+              "outline-variant": "#4d4637",
+              "primary-fixed-dim": "#e6c364",
+              "primary-container": "#c9a84c",
+              surface: "#131314",
+              "primary-fixed": "#ffe08f",
+              "surface-tint": "#e6c364",
+              "surface-container-highest": "#353436",
+              "surface-bright": "#3a393a",
+              "on-primary-fixed-variant": "#584400",
+              "surface-container-high": "#2a2a2b",
+              "surface-variant": "#353436",
+              "surface-container-low": "#1c1b1c",
+              "error-container": "#93000a",
+              "secondary-fixed": "#e5e1e4",
+              "on-tertiary": "#68000e",
+              "on-background": "#e5e2e3",
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0px",
+              xl: "0px",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Work Sans"],
+              label: ["Space Grotesk"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .film-grain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBYwtXKB0ieTZRMpvmPacg2V2alf8xSrZDxoo59MsX2lzu-bKngkGH7ubnxMBbfsWibVxbpoGybx2g7xOKztE67T3r7CkddVRdaq_C9oNVWgWbiI9xWhfdT7vBSyPFrXrq99TXpnlGcKTOohq9UNetO6gw7jsgnrTS2rYVtKlo19jpoHx7HACts9Xk8xOA6e4kofWm9uxF5RjaaCc6J8GIqKHzA139yHli8GH9LDOpdjxBOJQe1fK0yPuvhy07Orh-ZRwebIWeVhfU4);
+        mix-blend-mode: soft-light;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #131314;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4d4637;
+      }
+      .notched-corner {
+        clip-path: polygon(
+          10% 0,
+          90% 0,
+          100% 15%,
+          100% 85%,
+          90% 100%,
+          10% 100%,
+          0 85%,
+          0 15%
+        );
+      }
+      .film-strip-edge {
+        background-image: radial-gradient(circle, #4d4637 20%, transparent 20%);
+        background-size: 10px 40px;
+        background-repeat: repeat-y;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen custom-scrollbar"
+  >
+    <div class="film-grain"></div>
+    <!-- Navigation Shell -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#131314]/70 backdrop-blur-md shadow-2xl shadow-black/50 border-none transition-colors duration-300"
+    >
+      <div
+        class="flex justify-between items-center px-8 py-4 w-full max-w-full"
+      >
+        <div class="flex items-center gap-12">
+          <a
+            class="text-3xl font-black text-[#e6c364] uppercase font-['Noto_Serif'] tracking-tight"
+            href="#"
+            >REEL</a
+          >
+          <nav class="hidden md:flex gap-8 items-center">
+            <a
+              class="font-['Noto_Serif'] tracking-tighter text-[#e6c364] border-b-2 border-[#e6c364] pb-1 font-bold"
+              href="#"
+              >Movies</a
+            >
+            <a
+              class="font-['Noto_Serif'] tracking-tighter text-[#d0c5b2] hover:text-[#e6c364] transition-colors"
+              href="#"
+              >TV Shows</a
+            >
+            <a
+              class="font-['Noto_Serif'] tracking-tighter text-[#d0c5b2] hover:text-[#e6c364] transition-colors"
+              href="#"
+              >People</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="relative hidden lg:block">
+            <input
+              class="bg-surface-container-low border-b border-outline-variant focus:border-primary outline-none py-2 px-4 w-64 font-label text-xs tracking-widest uppercase transition-all focus:w-80"
+              placeholder="Search the archive..."
+              type="text"
+            />
+            <span
+              class="material-symbols-outlined absolute right-2 top-2 text-outline-variant"
+              >search</span
+            >
+          </div>
+          <div class="flex gap-4">
+            <button class="hover:bg-white/5 p-2 transition-all">
+              <span class="material-symbols-outlined text-[#e6c364]"
+                >bookmark</span
+              >
+            </button>
+            <button class="hover:bg-white/5 p-2 transition-all">
+              <span class="material-symbols-outlined text-[#e6c364]"
+                >account_circle</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="pt-32 px-8 max-w-[1600px] mx-auto">
+      <!-- Editorial Header -->
+      <div class="mb-12">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/15 pb-8"
+        >
+          <div>
+            <span
+              class="font-label text-[10px] uppercase tracking-[0.4em] text-primary mb-2 block"
+              >Cinematic Library</span
+            >
+            <h1
+              class="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-none"
+            >
+              THE ARCHIVE
+            </h1>
+          </div>
+          <div
+            class="font-label text-xs text-on-surface-variant max-w-xs text-right opacity-60"
+          >
+            Curated selections from the golden age of noir to contemporary
+            auteur-driven masterpieces.
+          </div>
+        </div>
+      </div>
+      <!-- Filter Row -->
+      <section class="flex flex-wrap items-center gap-8 mb-12 py-4">
+        <div class="flex flex-col gap-1 min-w-[150px]">
+          <label
+            class="font-label text-[9px] uppercase tracking-widest text-outline"
+            >Genre</label
+          >
+          <select
+            class="bg-transparent border-b border-outline-variant font-label text-xs uppercase tracking-widest py-2 focus:border-primary outline-none cursor-pointer"
+          >
+            <option>All Genres</option>
+            <option>Film Noir</option>
+            <option>Avant-Garde</option>
+            <option>Cyberpunk</option>
+            <option>Neo-Realism</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1 min-w-[150px]">
+          <label
+            class="font-label text-[9px] uppercase tracking-widest text-outline"
+            >Decade</label
+          >
+          <select
+            class="bg-transparent border-b border-outline-variant font-label text-xs uppercase tracking-widest py-2 focus:border-primary outline-none cursor-pointer"
+          >
+            <option>All Eras</option>
+            <option>1940s</option>
+            <option>1970s</option>
+            <option>1990s</option>
+            <option>2020s</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1 min-w-[150px]">
+          <label
+            class="font-label text-[9px] uppercase tracking-widest text-outline"
+            >Rating</label
+          >
+          <div class="flex gap-1 py-2 text-primary">
+            <span
+              class="material-symbols-outlined text-sm"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >star</span
+            >
+            <span
+              class="material-symbols-outlined text-sm"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >star</span
+            >
+            <span
+              class="material-symbols-outlined text-sm"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >star</span
+            >
+            <span
+              class="material-symbols-outlined text-sm"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >star</span
+            >
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1 ml-auto">
+          <label
+            class="font-label text-[9px] uppercase tracking-widest text-outline"
+            >Sort By</label
+          >
+          <select
+            class="bg-transparent border-b border-outline-variant font-label text-xs uppercase tracking-widest py-2 focus:border-primary outline-none cursor-pointer text-right"
+          >
+            <option>Most Recent</option>
+            <option>Auteur Rank</option>
+            <option>Duration</option>
+          </select>
+        </div>
+      </section>
+      <!-- Main Listing Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16"
+      >
+        <!-- Movie Card 1 -->
+        <article class="group cursor-pointer relative">
+          <div
+            class="relative overflow-hidden aspect-[2/3] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_0_40px_-5px_rgba(230,195,100,0.3)]"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"
+            ></div>
+            <img
+              alt="Cinematic Still"
+              class="w-full h-full object-cover"
+              data-alt="dramatic cinematic shot of a rainy city street at night with neon lights reflecting in puddles, noir aesthetic"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcuEnPuXZbCuKSaYX110tRXQt5AxF5ZWv83wlSgrI3CrqfTiMF71qGZaudPFXtAduHubOScVlyKhMpwvJbWDb_ADUwlo2vumhdw4qvW_ScXJica4-2AqmG-OxFl6mmvq0rAcJBaAVjpBzGhAojkKCAIbhKSxlFByoIQV50owso7ZuLNakHT5Q_weZLD6ClOK_4nAasD5OEYlxSmGtXlzPTOw5aXWC0tsZbMAL5J9aIvKHJHGVvvpTvQIb7y2_FqpDqL75FJaE2w582"
+            />
+            <!-- Film Strip Accent -->
+            <div
+              class="absolute left-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute right-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <!-- Hover Score Badge -->
+            <div
+              class="absolute top-4 right-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300 bg-primary text-on-primary px-3 py-1 font-label text-sm font-bold notched-corner z-30"
+            >
+              8.4
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col gap-2 relative">
+            <div class="flex justify-between items-start gap-4">
+              <h3
+                class="font-headline text-2xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors"
+              >
+                THE MIDNIGHT ECHO
+              </h3>
+              <span
+                class="font-label text-[10px] border border-outline-variant/30 px-2 py-0.5 mt-1"
+                >4K</span
+              >
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant"
+                >2023</span
+              >
+              <span class="w-1 h-1 bg-primary"></span>
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant uppercase"
+                >Film Noir</span
+              >
+            </div>
+          </div>
+        </article>
+        <!-- Movie Card 2 -->
+        <article class="group cursor-pointer relative">
+          <div
+            class="relative overflow-hidden aspect-[2/3] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_0_40px_-5px_rgba(230,195,100,0.3)]"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"
+            ></div>
+            <img
+              alt="Cinematic Still"
+              class="w-full h-full object-cover"
+              data-alt="vintage theater interior with velvet red curtains and soft golden light, dusty atmosphere, 35mm film grain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sctrxx_4G4jYkAdFz5V1LAepjYyZaewxLQCAf3AIvhq86wXFHmOrAwCyyfykZlnw-yK8Mxifh1EpO9xJWorFXq7huYlOMZ9EdpjC-lG48NTxuwHE1yer4TjvelGSyeh1GPGIXoLSw8KimLu5Li6Lombh5re2m-nG9CcD-RRIfZ0FVN4mzMij5hTh1OZVPQeEAB_J7UofNMiGIifttMnX_RpOnmH6qpjckUnjXdWUzq6SXoTIWQLZF2Wh7BLgiOKMqcThS2GZUJ7Z"
+            />
+            <div
+              class="absolute left-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute right-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute top-4 right-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300 bg-primary text-on-primary px-3 py-1 font-label text-sm font-bold notched-corner z-30"
+            >
+              9.1
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col gap-2 relative">
+            <div class="flex justify-between items-start gap-4">
+              <h3
+                class="font-headline text-2xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors"
+              >
+                CELLULOID DREAMS
+              </h3>
+              <span
+                class="font-label text-[10px] border border-outline-variant/30 px-2 py-0.5 mt-1"
+                >16MM</span
+              >
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant"
+                >1974</span
+              >
+              <span class="w-1 h-1 bg-primary"></span>
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant uppercase"
+                >Documentary</span
+              >
+            </div>
+          </div>
+        </article>
+        <!-- Movie Card 3 -->
+        <article class="group cursor-pointer relative">
+          <div
+            class="relative overflow-hidden aspect-[2/3] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_0_40px_-5px_rgba(230,195,100,0.3)]"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"
+            ></div>
+            <img
+              alt="Cinematic Still"
+              class="w-full h-full object-cover"
+              data-alt="close up profile of a woman looking through a prism, light refracting into rainbows, artistic portrait, cinematic lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxB53-vKW01G9hbuV1pjdQ_W9rVqA5ODH2CsXl_hnGnqVwzEQ-Qb_VdHmdYXRHF-92D0g9LMPeEN0jc2csIiOUGFx8hxyqnQwMGROPjcNOmAz6aZ7GPwy8Vw4Fd0rRfcc12B1EB2KWbnfOpK9o8S3zd_U5PiNguTEOcnycxUTsUZjFJZgMUHtJ5rstXPCnJHYzv1OhyFxGU2Px9R7bj5IrrxkYFdLQ4Pli4dTCgwS4oGAy8abI-gSRA0aJiNaOCGlN97T9BdupjhX"
+            />
+            <div
+              class="absolute left-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute right-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute top-4 right-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300 bg-primary text-on-primary px-3 py-1 font-label text-sm font-bold notched-corner z-30"
+            >
+              7.8
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col gap-2 relative">
+            <div class="flex justify-between items-start gap-4">
+              <h3
+                class="font-headline text-2xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors"
+              >
+                PRISM SHATTER
+              </h3>
+              <span
+                class="font-label text-[10px] border border-outline-variant/30 px-2 py-0.5 mt-1"
+                >HD</span
+              >
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant"
+                >2021</span
+              >
+              <span class="w-1 h-1 bg-primary"></span>
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant uppercase"
+                >Avant-Garde</span
+              >
+            </div>
+          </div>
+        </article>
+        <!-- Skeleton Loader Card -->
+        <div class="flex flex-col gap-6">
+          <div
+            class="aspect-[2/3] bg-surface-container-high relative overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"
+            ></div>
+            <style>
+              @keyframes shimmer {
+                100% {
+                  transform: translateX(100%);
+                }
+              }
+            </style>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="h-8 bg-surface-container-high w-3/4"></div>
+            <div class="h-4 bg-surface-container-high w-1/2"></div>
+          </div>
+        </div>
+        <!-- More results... -->
+        <article class="group cursor-pointer relative lg:col-start-1">
+          <div
+            class="relative overflow-hidden aspect-[2/3] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_0_40px_-5px_rgba(230,195,100,0.3)]"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"
+            ></div>
+            <img
+              alt="Cinematic Still"
+              class="w-full h-full object-cover"
+              data-alt="wide shot of a lonely gas station in a vast desert under a starry night sky, melancholic cinematic atmosphere"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAexkg_pJDakbJG0GSL5QpTEqsAfwadUFGefQ7Rn-37JGLxMJHPmvcUx2vlyguue3_yoxNlMJeElFDu7bcoDf25JCuEZALotXllKb9Q3ecO7SveL6LNhxnJaRfWGmQAJ0Cz6lguKu-7b8c20YkowBAx08LUW4f7qAWc8DsK6RoBbyxnvqK6zxHuSGRKguSowxjd2jVswiidT1UKUi37O5tgqivxPcVi_pMvdwkMWL77JyR0sy8ECIpTylbfc9B7hB1LjsdxRbc8ga51"
+            />
+            <div
+              class="absolute left-0 top-0 h-full w-2 film-strip-edge z-20 opacity-30"
+            ></div>
+            <div
+              class="absolute top-4 right-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300 bg-primary text-on-primary px-3 py-1 font-label text-sm font-bold notched-corner z-30"
+            >
+              8.9
+            </div>
+          </div>
+          <div class="mt-6 flex flex-col gap-2 relative">
+            <div class="flex justify-between items-start gap-4">
+              <h3
+                class="font-headline text-2xl font-bold tracking-tight leading-tight group-hover:text-primary transition-colors"
+              >
+                STATIONS IN SILENCE
+              </h3>
+              <span
+                class="font-label text-[10px] border border-outline-variant/30 px-2 py-0.5 mt-1"
+                >70MM</span
+              >
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant"
+                >2019</span
+              >
+              <span class="w-1 h-1 bg-primary"></span>
+              <span
+                class="font-label text-xs tracking-widest text-on-surface-variant uppercase"
+                >Thriller</span
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- Pagination -->
+      <nav
+        class="mt-24 border-t border-outline-variant/20 py-12 flex justify-between items-center"
+      >
+        <button
+          class="font-label text-[10px] uppercase tracking-widest flex items-center gap-2 group hover:text-primary transition-colors"
+        >
+          <span class="material-symbols-outlined text-sm">west</span> Previous
+          Chapter
+        </button>
+        <div class="flex items-center gap-6">
+          <span class="font-label text-sm text-primary font-bold">01</span>
+          <span
+            class="font-label text-sm text-on-surface-variant/40 hover:text-on-surface cursor-pointer"
+            >02</span
+          >
+          <span
+            class="font-label text-sm text-on-surface-variant/40 hover:text-on-surface cursor-pointer"
+            >03</span
+          >
+          <span class="font-label text-sm text-on-surface-variant/40">...</span>
+          <span
+            class="font-label text-sm text-on-surface-variant/40 hover:text-on-surface cursor-pointer"
+            >12</span
+          >
+        </div>
+        <button
+          class="font-label text-[10px] uppercase tracking-widest flex items-center gap-2 group hover:text-primary transition-colors"
+        >
+          Next Chapter
+          <span class="material-symbols-outlined text-sm">east</span>
+        </button>
+      </nav>
+      <!-- Hidden No Results State (Demonstrating logic) -->
+      <div class="hidden flex-col items-center justify-center py-40 gap-8">
+        <div class="relative">
+          <span
+            class="material-symbols-outlined text-9xl text-outline-variant/20"
+            >movie_edit</span
+          >
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span
+              class="material-symbols-outlined text-4xl text-primary animate-pulse"
+              >search_off</span
+            >
+          </div>
+        </div>
+        <div class="text-center">
+          <h2 class="font-headline text-4xl mb-2">
+            The projection room is empty
+          </h2>
+          <p class="font-body text-on-surface-variant opacity-60">
+            Adjust your filters to discover different stories.
+          </p>
+        </div>
+        <button
+          class="notched-corner bg-primary text-on-primary px-8 py-3 font-label text-xs font-bold tracking-widest"
+        >
+          CLEAR ALL FILTERS
+        </button>
+      </div>
+    </main>
+    <!-- Footer Section -->
+    <footer
+      class="bg-[#131314] w-full py-12 mt-20 border-t border-[#d0c5b2]/10 flex flex-col items-center gap-6 px-10"
+    >
+      <div class="flex flex-col items-center gap-2 mb-4">
+        <span
+          class="text-[#e6c364] font-bold font-headline text-2xl tracking-tighter"
+          >REEL</span
+        >
+        <span
+          class="font-label text-[9px] tracking-[0.5em] text-on-surface-variant/40 uppercase"
+          >The Auteur's Journal</span
+        >
+      </div>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+        <a
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d0c5b2]/60 hover:text-[#e6c364] transition-colors"
+          href="#"
+          >Privacy Policy</a
+        >
+        <a
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d0c5b2]/60 hover:text-[#e6c364] transition-colors"
+          href="#"
+          >Terms of Service</a
+        >
+        <a
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d0c5b2]/60 hover:text-[#e6c364] transition-colors"
+          href="#"
+          >Press Kit</a
+        >
+        <a
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d0c5b2]/60 hover:text-[#e6c364] transition-colors"
+          href="#"
+          >Archive Access</a
+        >
+      </div>
+      <div class="mt-8 text-center">
+        <p
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest text-[#d0c5b2]/40"
+        >
+          © 2024 REEL CINEMATIC EDITORIAL. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <!-- Side Navigation (Mobile Hidden) -->
+    <aside
+      class="fixed left-0 top-0 h-screen w-64 bg-[#141416] border-r border-[#d0c5b2]/15 hidden 2xl:flex flex-col z-40 transform -translate-x-full 3xl:translate-x-0 transition-transform"
+    >
+      <div class="p-8 mt-24">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-10 h-10 border border-primary/30 p-0.5">
+            <img
+              alt="User Profile"
+              class="w-full h-full object-cover"
+              data-alt="black and white artistic headshot of a sophisticated man with glasses, professional portrait"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzVYf6rPVOjNnb1RLb54_gSIzjCECkKlN1EhF6ndAM2RK6i7UWFEsjUS2mrrU035FqnHoKSA5Vc0a8FLGdqMD-lzCVCcw8jq6LmPklWCMq7FTa50nUNWxBo9t9uuU93Iz5Q_H9W8fw33h9Zyqj08UxJTT-D5EvkJbSTFTOI9hlyOUmk82SxDcl29L-5qbp6BUlb_2jBfw83UU74UYafSafmB9UoTLFUOPfRWn-KnngODgQBFHg-A3rsjp424ft1TG_jFpEUyUTRPA4"
+            />
+          </div>
+          <div>
+            <h4 class="font-headline text-sm font-bold">The Auteur</h4>
+            <p class="font-label text-[9px] text-primary tracking-widest">
+              PREMIUM MEMBER
+            </p>
+          </div>
+        </div>
+        <nav class="flex flex-col gap-2">
+          <a
+            class="flex items-center gap-4 p-3 bg-[#e6c364] text-[#131314] font-bold transition-all transform translate-x-1"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined text-lg"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >home</span
+            >
+            <span class="font-label text-xs uppercase tracking-widest"
+              >Home</span
+            >
+          </a>
+          <a
+            class="flex items-center gap-4 p-3 text-[#d0c5b2] hover:bg-white/5 transition-all hover:tracking-[0.2em]"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">movie_filter</span>
+            <span class="font-label text-xs uppercase tracking-widest"
+              >Trending</span
+            >
+          </a>
+          <a
+            class="flex items-center gap-4 p-3 text-[#d0c5b2] hover:bg-white/5 transition-all hover:tracking-[0.2em]"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg"
+              >auto_awesome_motion</span
+            >
+            <span class="font-label text-xs uppercase tracking-widest"
+              >Watchlist</span
+            >
+          </a>
+          <a
+            class="flex items-center gap-4 p-3 text-[#d0c5b2] hover:bg-white/5 transition-all hover:tracking-[0.2em]"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">military_tech</span>
+            <span class="font-label text-xs uppercase tracking-widest"
+              >Awards</span
+            >
+          </a>
+          <a
+            class="flex items-center gap-4 p-3 text-[#d0c5b2] hover:bg-white/5 transition-all hover:tracking-[0.2em]"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">history_edu</span>
+            <span class="font-label text-xs uppercase tracking-widest"
+              >Archive</span
+            >
+          </a>
+        </nav>
+      </div>
+      <div class="mt-auto p-8">
+        <button
+          class="w-full notched-corner bg-primary text-on-primary font-label text-xs font-bold tracking-widest py-4 hover:brightness-110 transition-all"
+        >
+          GET TICKETS
+        </button>
+      </div>
+    </aside>
+  </body>
+</html>

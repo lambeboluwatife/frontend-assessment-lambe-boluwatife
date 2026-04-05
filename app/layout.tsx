@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif, Work_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const notoSerif = Noto_Serif({
   variable: "--font-serif",
@@ -36,6 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${notoSerif.variable} ${workSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
+      <Navbar />
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
